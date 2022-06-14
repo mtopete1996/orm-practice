@@ -1,0 +1,15 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - Gemfile
+    - Gemfile.lock
+
+Layout/LineLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - '**/spec/*_spec.rb'
