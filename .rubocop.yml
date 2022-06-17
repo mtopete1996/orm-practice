@@ -1,11 +1,11 @@
 AllCops:
   NewCops: enable
-  Exclude:
-    - Gemfile
-    - Gemfile.lock
 
 Layout/LineLength:
   Max: 100
+
+Lint/MissingSuper:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
