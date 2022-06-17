@@ -1,0 +1,4 @@
+person:
+  collection_name: 'persons'
+  attributes:
+    - name
