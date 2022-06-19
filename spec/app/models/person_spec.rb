@@ -8,6 +8,13 @@ require_relative '../../../app/lib/collection'
 
 describe ::Models::Person do
   context '.create' do
+    before do
+      Collection.instance.instance_variable_set('@persons', [])
+      allow(Collection.instance).to receive(:persons) do
+        Collection.instance.instance_variable_get('@persons')
+      end
+    end
+
     let(:name) { 'Manuel' }
 
     subject { described_class.create(name) }

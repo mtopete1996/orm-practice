@@ -22,10 +22,6 @@ class SchemasReader
 
     private
 
-    def clean
-      file_names.map { |file| file.split('.').first }
-    end
-
     def path
       File.join(Dir.pwd, SCHEMAS_PATH)
     end
