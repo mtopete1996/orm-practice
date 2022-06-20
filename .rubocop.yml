@@ -7,9 +7,9 @@ Layout/LineLength:
 Lint/MissingSuper:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
 Style/Documentation:
   Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - '**/spec/*_spec.rb'
