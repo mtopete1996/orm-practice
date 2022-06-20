@@ -1,0 +1,5 @@
+food:
+  collection_name: 'foods'
+  attributes:
+    - name
+    - description
