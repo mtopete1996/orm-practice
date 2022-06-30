@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../lib/collection'
-
 module Models
   class Base
     class << self

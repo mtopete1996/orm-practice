@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require 'rspec'
-require 'debug'
-
-require_relative '../../../app/lib/schemas_reader'
-require_relative '../../../app/lib/collection'
+require_relative '../../rspec_helper'
 
 describe Collection do
   context 'dynamic_getters' do

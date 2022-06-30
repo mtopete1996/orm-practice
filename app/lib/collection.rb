@@ -2,8 +2,6 @@
 
 require 'singleton'
 
-require_relative './schemas_reader'
-
 class Collection
   include Singleton
 
