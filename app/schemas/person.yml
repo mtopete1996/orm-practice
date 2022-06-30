@@ -1,5 +1,4 @@
 person:
   collection_name: 'persons'
   attributes:
-    - id
     - name

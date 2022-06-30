@@ -10,8 +10,7 @@ module Models
 
     MODEL_NAME = 'foods'
 
-    def initialize(name, id = nil)
-      super(id)
+    def initialize(name)
       @name = name
     end
   end
