@@ -2,11 +2,12 @@
 
 module Models
   class Person < Base
-    attr_reader :name
+    attr_reader :id, :name
 
     MODEL_NAME = 'persons'
 
-    def initialize(name)
+    def initialize(name, id = nil)
+      super(id)
       @name = name
     end
   end
