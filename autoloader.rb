@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-require 'find'
+ENTRIES = %w[./app/lib ./app/models/behaviors ./app/models].freeze
 
-Find.find('app') do |path|
-  load path if path =~ /.*\.rb$/
+ENTRIES.each do |folder|
+  Dir.entries(folder).drop(2).each do |path|
+    next unless path =~ /.*\.rb$/
+
+    puts "Loading #{path} ..."
+    load File.join(folder, path)
+  end
 end

@@ -2,7 +2,7 @@
 
 module Models
   class Base
-    include ::Idable
+    include Models::Behaviors::Idable
 
     def initialize(id)
       @id = id || calculate_id
