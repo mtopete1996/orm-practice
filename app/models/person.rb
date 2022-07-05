@@ -4,7 +4,7 @@ module Models
   class Person < Base
     attr_reader :id, :name
 
-    MODEL_NAME = 'persons'
+    COLLECTION_NAME = 'persons'
 
     def initialize(name, id = nil)
       super(id)

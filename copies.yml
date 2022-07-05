@@ -1,0 +1,6 @@
+en:
+  app:
+    not_existing_model: 'Selected model does not exist'
+  menu:
+    main:
+      default_input_copy: 'Ingresa una opcion: '

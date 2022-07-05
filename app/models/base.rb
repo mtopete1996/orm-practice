@@ -10,11 +10,11 @@ module Models
 
     class << self
       def create(name, id = nil)
-        Collection.instance.send(self::MODEL_NAME) << new(name, id)
+        Collection.instance.send(self::COLLECTION_NAME) << new(name, id)
       end
 
       def all
-        Collection.instance.send(self::MODEL_NAME)
+        Collection.instance.send(self::COLLECTION_NAME)
       end
     end
   end

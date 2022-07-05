@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-require 'rspec'
+unless defined?(::Models::Base)
+  require 'rspec'
 
-load 'autoloader.rb'
+  load 'autoloader.rb'
+end
