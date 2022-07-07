@@ -2,7 +2,7 @@
 
 module Models
   class Food < Base
-    attr_reader :id, :name
+    attr_accessor :id, :name
 
     COLLECTION_NAME = 'foods'
 

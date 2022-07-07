@@ -3,13 +3,6 @@
 module Menu
   class Main < Base
     class << self
-      def generate
-        ::Logger.print(options)
-        ::Logger.input(::Coppier.get(:menu, :main, :default_input_copy)).tap do
-          ::Logger.separator
-        end
-      end
-
       private
 
       def options

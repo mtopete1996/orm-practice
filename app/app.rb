@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-load './autoloader.rb'
+load './autoloader.rb' unless defined?(::Models::Base)
 
 class App
   attr_reader :model, :option
@@ -12,18 +12,26 @@ class App
   end
 
   def call
-    return ::Logger.print(::Coppier.get(:app, :not_existing_model)) if read_option.nil? || select_model.nil?
+    return ::Logger.copy(:app, :not_existing_model) if valid_option?
 
-    ::Logger.print("You've selected #{model::COLLECTION_NAME}")
+    ::OperationPerformer.call(model:, operation: select_operation)
   end
 
   private
 
-  def read_option
-    @option = ::SchemasReader.collection_names[::Menu::Main.generate.to_i - 1]
+  def find_model
+    @model = ::Models::Base.subclasses.find { |mdl| mdl::COLLECTION_NAME == option }
   end
 
-  def select_model
-    @model = ::Models::Base.subclasses.find { |mdl| mdl::COLLECTION_NAME == option }
+  def read_model_option
+    @option = ::SchemasReader.collection_names[::Menu::Main.generate - 1]
+  end
+
+  def select_operation
+    ::Menu::Operations.generate
+  end
+
+  def valid_option?
+    read_model_option.nil? || find_model.nil?
   end
 end

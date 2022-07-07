@@ -2,9 +2,9 @@
 
 require_relative '../../../rspec_helper'
 
-describe ::Menu::Main do
+describe ::Menu::Operations do
   context '.generate' do
-    let(:options) { ['1. foods', '2. persons'] }
+    let(:options) { ['1. Create', '2. Read All'] }
     subject { described_class.generate }
 
     it 'dynamically generates the menu with existing models' do
