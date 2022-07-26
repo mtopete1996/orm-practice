@@ -9,12 +9,20 @@ module Models
     end
 
     class << self
+      def all
+        Collection.instance.send(self::COLLECTION_NAME)
+      end
+
+      def attributes
+        SchemasReader.collection_attributes(model_name)
+      end
+
       def create(name, id = nil)
         Collection.instance.send(self::COLLECTION_NAME) << new(name, id)
       end
 
-      def all
-        Collection.instance.send(self::COLLECTION_NAME)
+      def model_name
+        name.split('::').last.downcase.to_sym
       end
     end
   end

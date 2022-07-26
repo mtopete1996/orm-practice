@@ -6,6 +6,12 @@ class SchemasReader
   SCHEMAS_PATH = 'app/schemas'
 
   class << self
+    def collection_attributes(collection_name)
+      raise(CollectionDoesNotExist, collection_name) if schema[collection_name].nil?
+
+      schema[collection_name][:attributes].map(&:to_sym)
+    end
+
     def collection_names
       schema.to_a.map { |model| model[1][:collection_name] }
     end

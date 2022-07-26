@@ -4,6 +4,7 @@ require 'debug'
 
 VERBOSE = false
 ENTRIES = %w[
+  ./addons
   ./app/exceptions
   ./app/lib
   ./app/lib/menu

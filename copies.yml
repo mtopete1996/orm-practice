@@ -1,6 +1,15 @@
 en:
   app:
+    empty_collection: 'The collection is empty'
     not_existing_model: 'Selected model does not exist'
+
+  logger:
+    invalid_option: 'Invalid option'
+
+  model_creator:
+    only_or_exclude: "You can't use only and exlude at the same time"
+    params_showing: 'These are the parameters: '
+    wont_save: "The record won't be saved"
+
   menu:
-    main:
-      default_input_copy: 'Ingresa una opcion: '
+    default_input_copy: 'Enter an option: '

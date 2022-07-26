@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-unless defined?(::Models::Base)
-  require 'rspec'
-
-  load './app/app.rb'
-end
+load './app/app.rb'
 
 describe ::App do
   let(:app) { described_class.new }
@@ -12,27 +8,33 @@ describe ::App do
   describe '#call' do
     context 'when option exists' do
       before do
-        allow(app).to receive(:read_option) { 1 }
-        allow(app).to receive(:select_model) { ::Models::Food }
-        allow(app).to receive(:model) { ::Models::Food }
+        # Select the model
+        allow(app).to receive(:read_model_option) { 1 }
+        allow(app).to receive(:find_model) { model }
+        allow(app).to receive(:model) { model }
+
+        # Select the operation
+        allow(app).to receive(:select_operation) { 1 }
       end
 
-      let(:selected_option) { 1 }
-      let(:expected_message) { "You've selected foods" }
+      let(:model) { 1 }
+      let(:model) { ::Models::Food }
+      let(:expected_message) { ['1. foods', '2. persons'] }
 
       subject { app.call }
 
       it 'initializes the app' do
-        expect(::Logger).to receive(:print).with(expected_message)
+        expect(::OperationPerformer).to receive(:call).with(model:, operation: 1)
         subject
       end
     end
 
     context 'when option does not exist' do
       before do
-        allow(app).to receive(:read_option) { 99 }
-        allow(app).to receive(:select_model) { nil }
-        allow(app).to receive(:model) { nil }
+        # Select the model
+        allow(app).to receive(:read_model_option) { 99 }
+        # allow(app).to receive(:find_model) { model }
+        # allow(app).to receive(:model) { model }
       end
 
       let(:selected_option) { 99 }

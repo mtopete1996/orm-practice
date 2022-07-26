@@ -16,8 +16,11 @@ class Coppier
   end
 
   class << self
-    def get(*key_path)
-      instance.object.dig(LANGUAGE, *key_path)
+    def get(*copy_path)
+      msg = instance.object.dig(LANGUAGE, *copy_path)
+      raise(CopyNotFound, copy_path) if msg.nil? || !msg.instance_of?(String)
+
+      msg
     end
   end
 end
