@@ -1,12 +1,15 @@
-name: My workflow
+name: CI
 on: [push, pull_request]
 jobs:
-  test:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.1.0' # Not needed with a .ruby-version file
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - run: bundle exec rake
+      - uses: actions/checkout@v3
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.1.0'
+          bundler-cache: true
+      - name: Rubocop Lint
+        run: bundle exec rubocop
+      - name: RSpec tests
+        run: bundle exec rspec --format d
